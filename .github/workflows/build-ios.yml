@@ -38,7 +38,7 @@ jobs:
       - name: Build Application
         run: |
           # Perintah ini mungkin berbeda tergantung dari build system spesifik Whatsgram. 
-          python3 build-system/Make/Make.py --overrideXcodeVersion build \
+          python3 build-system/Make/Make.py --overrideXcodeVersion --bazelArguments="--//Telegram:disableExtensions --//Telegram:disableProvisioningProfiles" build \
             --buildNumber 1 \
             --configurationPath build-system/template_minimal_development_configuration.json \
             --xcodeManagedCodesigning \
