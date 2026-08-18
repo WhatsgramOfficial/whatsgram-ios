@@ -41,9 +41,8 @@ jobs:
       - name: Build Application
         run: |
           # Perintah ini mungkin berbeda tergantung dari build system spesifik Whatsgram. 
-          # Umumnya untuk Telegram-iOS menggunakan xcodebuild atau bazel:
-          xcodebuild build \
-            -workspace Telegram-iOS.xcworkspace \
-            -scheme Telegram-iOS \
-            -destination 'generic/platform=iOS' \
-            CODE_SIGNING_ALLOWED=NO
+          python3 build-system/Make/Make.py build \
+            --buildNumber 1 \
+            --configurationPath build-system/template_minimal_development_configuration.json \
+            --xcodeManagedCodesigning \
+            --configuration debug_sim_arm64
