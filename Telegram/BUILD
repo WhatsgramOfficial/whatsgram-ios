@@ -1777,10 +1777,10 @@ ios_application(
         ":RequiredDeviceCapabilitiesPlist",
         ":UrlTypesInfoPlist",
     ],
-    app_icons = [ ":{}_icon".format(name) for name in composer_icon_folders ],
-    alternate_icons = [
-        ":{}".format(name) for name in alternate_icon_folders
-    ],
+    #app_icons = [ ":{}_icon".format(name) for name in composer_icon_folders ],
+    #alternate_icons = [
+    #    ":{}".format(name) for name in alternate_icon_folders
+    #],
     resources = [
         ":LaunchScreen",
         #":DefaultAppIcon",
