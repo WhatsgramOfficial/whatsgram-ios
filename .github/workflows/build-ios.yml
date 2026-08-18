@@ -21,7 +21,7 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.2' # Sesuaikan dengan versi Xcode yang dibutuhkan
+          xcode-version: '26.2' # Sesuaikan dengan versi Xcode yang ada di versions.json
 
       - name: Cache Build Data
         uses: actions/cache@v3
@@ -36,12 +36,12 @@ jobs:
 
       - name: Generate Project
         run: |
-          python3 build-system/Make/Make.py generateProject --configurationPath build-system/template_minimal_development_configuration.json --disableProvisioningProfiles --xcodeManagedCodesigning
+          python3 build-system/Make/Make.py --overrideXcodeVersion generateProject --configurationPath build-system/template_minimal_development_configuration.json --disableProvisioningProfiles --xcodeManagedCodesigning
 
       - name: Build Application
         run: |
           # Perintah ini mungkin berbeda tergantung dari build system spesifik Whatsgram. 
-          python3 build-system/Make/Make.py build \
+          python3 build-system/Make/Make.py --overrideXcodeVersion build \
             --buildNumber 1 \
             --configurationPath build-system/template_minimal_development_configuration.json \
             --xcodeManagedCodesigning \
