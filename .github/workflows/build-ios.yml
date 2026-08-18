@@ -36,7 +36,7 @@ jobs:
 
       - name: Generate Project
         run: |
-          make generate
+          python3 build-system/Make/Make.py generateProject
 
       - name: Build Application
         run: |
