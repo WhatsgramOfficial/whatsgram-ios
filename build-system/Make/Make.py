@@ -25,7 +25,7 @@ class ResolvedCodesigningData:
 
 
 class BazelCommandLine:
-    def __init__(self, bazel, override_bazel_version, override_xcode_version, bazel_user_root):
+    def __init__(self, bazel, override_bazel_version, override_xcode_version, bazel_user_root, bazel_arguments=None):
         self.build_environment = BuildEnvironment(
             base_path=os.getcwd(),
             bazel_path=bazel,
@@ -34,6 +34,7 @@ class BazelCommandLine:
         )
         self.bazel = bazel
         self.bazel_user_root = bazel_user_root
+        self.bazel_arguments = bazel_arguments
         self.lock = False
         self.remote_cache = None
         self.cache_dir = None
@@ -660,7 +661,8 @@ def build(bazel, arguments):
         bazel=bazel,
         override_bazel_version=arguments.overrideBazelVersion,
         override_xcode_version=arguments.overrideXcodeVersion,
-        bazel_user_root=arguments.bazelUserRoot
+        bazel_user_root=arguments.bazelUserRoot,
+        bazel_arguments=arguments.bazelArguments
     )
 
     if arguments.lock:
