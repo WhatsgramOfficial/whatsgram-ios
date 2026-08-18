@@ -34,9 +34,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-bazel-
 
-      - name: Generate Project
-        run: |
-          python3 build-system/Make/Make.py --overrideXcodeVersion generateProject --configurationPath build-system/template_minimal_development_configuration.json --disableProvisioningProfiles --xcodeManagedCodesigning
 
       - name: Build Application
         run: |
