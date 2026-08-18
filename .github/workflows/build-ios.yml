@@ -21,7 +21,7 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '26.2' # Sesuaikan dengan versi Xcode yang ada di versions.json
+          xcode-version: '16.2.0' # Menggunakan Xcode 16.2 yang tersedia di GitHub Actions
 
       - name: Cache Build Data
         uses: actions/cache@v3
