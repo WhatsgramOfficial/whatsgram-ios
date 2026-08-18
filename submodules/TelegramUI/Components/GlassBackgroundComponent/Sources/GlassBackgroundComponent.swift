@@ -422,8 +422,8 @@ public class GlassBackgroundView: UIView {
                 transition.setCornerRadius(layer: self.view.layer, cornerRadius: cornerRadius)
             case let .customRoundedRect(cornerRadii):
                 transition.setCornerRadius(layer: self.view.layer, cornerRadius: 0.0)
-                #if false
                 if #available(iOS 26.0, *) {
+                    #if false
                     transition.animateView {
                         self.view.cornerConfiguration = .corners(
                             topLeftRadius: .fixed(cornerRadii.topLeft),
@@ -432,9 +432,8 @@ public class GlassBackgroundView: UIView {
                             bottomRightRadius: .fixed(cornerRadii.bottomRight)
                         )
                     }
-                } else
-                #endif
-                {
+                    #endif
+                } else {
                     let maskLayer: CAShapeLayer
                     if let current = self.maskLayer {
                         maskLayer = current
@@ -498,14 +497,13 @@ public class GlassBackgroundView: UIView {
     public static var useCustomGlassImpl: Bool = false
     
     public override init(frame: CGRect) {
-        #if false
         if #available(iOS 26.0, *), !GlassBackgroundView.useCustomGlassImpl {
             self.legacyView = nil
             self.legacyHighlightContainerView = nil
             self.legacyHighlightClippingContext = nil
             
-            let glassEffect = UIGlassEffect(style: .regular)
-            glassEffect.isInteractive = false
+            let glassEffect = UIBlurEffect(style: .regular)
+            // glassEffect.isInteractive = false
             let nativeView = UIVisualEffectView(effect: glassEffect)
             self.nativeViewClippingContext = ClippingShapeContext(view: nativeView)
             self.nativeView = nativeView
@@ -517,9 +515,7 @@ public class GlassBackgroundView: UIView {
             
             self.foregroundView = nil
             self.shadowView = nil
-        } else
-        #endif
-        {
+        } else {
             self.legacyView = LegacyGlassView(frame: CGRect())
             let legacyHighlightContainerView = UIView()
             legacyHighlightContainerView.isUserInteractionEnabled = false
@@ -863,10 +859,9 @@ public final class GlassBackgroundContainerView: UIView {
     }
     
     public init(spacing: CGFloat = 7.0) {
-        #if false
         if #available(iOS 26.0, *), !GlassBackgroundView.useCustomGlassImpl {
-            let effect = UIGlassContainerEffect()
-            effect.spacing = spacing
+            let effect = UIBlurEffect(style: .regular)
+            // effect.spacing = spacing
             let nativeView = UIVisualEffectView(effect: effect)
             self.nativeView = nativeView
             
@@ -875,9 +870,7 @@ public final class GlassBackgroundContainerView: UIView {
             nativeParamsView.addSubview(nativeView)
             
             self.legacyView = nil
-        } else
-        #endif
-        {
+        } else {
             self.nativeView = nil
             self.nativeParamsView = nil
             self.legacyView = ContentView()
