@@ -34,8 +34,8 @@ public class TDLibApi {
 
 
     /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
-    /// - Parameter apiHash: Application identifier hash for Telegram API access, which can be obtained at https://my.telegram.org
-    /// - Parameter apiId: Application identifier for Telegram API access, which can be obtained at https://my.telegram.org
+    /// - Parameter apiHash: Application identifier hash for Whatsgram API access, which can be obtained at https://my.whatsgram.org
+    /// - Parameter apiId: Application identifier for Whatsgram API access, which can be obtained at https://my.whatsgram.org
     /// - Parameter applicationVersion: Application version; must be non-empty
     /// - Parameter databaseDirectory: The path to the directory for the persistent database; if empty, the current working directory will be used
     /// - Parameter databaseEncryptionKey: Encryption key for the database. If the encryption key is invalid, then an error with code 401 will be returned
@@ -47,7 +47,7 @@ public class TDLibApi {
     /// - Parameter useFileDatabase: Pass true to keep information about downloaded and uploaded files between application restarts
     /// - Parameter useMessageDatabase: Pass true to keep cache of chats and messages between restarts. Implies use_chat_info_database
     /// - Parameter useSecretChats: Pass true to enable support for secret chats
-    /// - Parameter useTestDc: Pass true to use Telegram test environment instead of the production environment
+    /// - Parameter useTestDc: Pass true to use Whatsgram test environment instead of the production environment
     public final func setTdlibParameters(
         apiHash: String?,
         apiId: Int?,
@@ -85,8 +85,8 @@ public class TDLibApi {
     }
 
     /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
-    /// - Parameter apiHash: Application identifier hash for Telegram API access, which can be obtained at https://my.telegram.org
-    /// - Parameter apiId: Application identifier for Telegram API access, which can be obtained at https://my.telegram.org
+    /// - Parameter apiHash: Application identifier hash for Whatsgram API access, which can be obtained at https://my.whatsgram.org
+    /// - Parameter apiId: Application identifier for Whatsgram API access, which can be obtained at https://my.whatsgram.org
     /// - Parameter applicationVersion: Application version; must be non-empty
     /// - Parameter databaseDirectory: The path to the directory for the persistent database; if empty, the current working directory will be used
     /// - Parameter databaseEncryptionKey: Encryption key for the database. If the encryption key is invalid, then an error with code 401 will be returned
@@ -98,7 +98,7 @@ public class TDLibApi {
     /// - Parameter useFileDatabase: Pass true to keep information about downloaded and uploaded files between application restarts
     /// - Parameter useMessageDatabase: Pass true to keep cache of chats and messages between restarts. Implies use_chat_info_database
     /// - Parameter useSecretChats: Pass true to enable support for secret chats
-    /// - Parameter useTestDc: Pass true to use Telegram test environment instead of the production environment
+    /// - Parameter useTestDc: Pass true to use Whatsgram test environment instead of the production environment
     @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
     @discardableResult
     public final func setTdlibParameters(
@@ -707,7 +707,7 @@ public class TDLibApi {
         return try await self.run(query: query)
     }
 
-    /// Returns the value of an option by its name. (Check the list of available options on https://core.telegram.org/tdlib/options.) Can be called before authorization. Can be called synchronously for options "version" and "commit_hash"
+    /// Returns the value of an option by its name. (Check the list of available options on https://core.whatsgram.org/tdlib/options.) Can be called before authorization. Can be called synchronously for options "version" and "commit_hash"
     /// - Parameter name: The name of the option
     /// - Returns: The value of an option by its name
     public final func getOption(
@@ -720,7 +720,7 @@ public class TDLibApi {
         self.run(query: query, completion: completion)
     }
 
-    /// Returns the value of an option by its name. (Check the list of available options on https://core.telegram.org/tdlib/options.) Can be called before authorization. Can be called synchronously for options "version" and "commit_hash"
+    /// Returns the value of an option by its name. (Check the list of available options on https://core.whatsgram.org/tdlib/options.) Can be called before authorization. Can be called synchronously for options "version" and "commit_hash"
     /// - Parameter name: The name of the option
     /// - Returns: The value of an option by its name
     @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
@@ -731,7 +731,7 @@ public class TDLibApi {
         return try await self.run(query: query)
     }
 
-    /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
+    /// Sets the value of an option. (Check the list of available options on https://core.whatsgram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
     /// - Parameter name: The name of the option
     /// - Parameter value: The new value of the option; pass null to reset option value to a default value
     public final func setOption(
@@ -746,7 +746,7 @@ public class TDLibApi {
         self.run(query: query, completion: completion)
     }
 
-    /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
+    /// Sets the value of an option. (Check the list of available options on https://core.whatsgram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
     /// - Parameter name: The name of the option
     /// - Parameter value: The new value of the option; pass null to reset option value to a default value
     @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
