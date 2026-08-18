@@ -319,6 +319,10 @@ class BazelCommandLine:
         if self.profile_swift:
             combined_arguments += ['--config=swift_profile']
 
+        if self.bazel_arguments:
+            import shlex
+            combined_arguments += shlex.split(self.bazel_arguments)
+
         print('TelegramBuild: running')
         print(subprocess.list2cmdline(combined_arguments))
         call_executable(combined_arguments)
