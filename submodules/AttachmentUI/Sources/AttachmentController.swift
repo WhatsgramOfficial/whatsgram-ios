@@ -2,7 +2,7 @@
 import UIKit
 import Display
 import AsyncDisplayKit
-import SwiftSignalKit
+@preconcurrency import SwiftSignalKit
 import ComponentFlow
 import TelegramCore
 import TelegramPresentationData
