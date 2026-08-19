@@ -20,6 +20,7 @@ import ComponentFlow
 import GlassBackgroundComponent
 import TextFormat
 
+extension NSAttributedString: @unchecked Sendable {}
 public enum AttachmentButtonType: Equatable {
     case gallery
     case file
